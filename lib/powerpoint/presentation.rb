@@ -46,8 +46,8 @@ module Powerpoint
       @slides << Powerpoint::Slide::BackgroundPicture.new(presentation: self, title: title, background_path: background_path, image_path: image_path)
     end
 
-    def add_fluvip_main_slide(title)
-      @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title)
+    def add_fluvip_main_slide(title, image_path)
+      @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title, image_path: image_path)
     end
 
     def add_fluvip_just_background_slide(title, background_path)

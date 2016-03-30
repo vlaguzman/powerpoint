@@ -198,8 +198,8 @@
         </p:nvSpPr>
         <p:spPr>
           <a:xfrm>
-            <a:off x="2873569" y="3172311" />
-            <a:ext cx="3396863" cy="1180127" />
+            <a:off x="2201334" y="3449310" />
+            <a:ext cx="4743152" cy="626129" />
           </a:xfrm>
           <a:prstGeom prst="rect">
             <a:avLst />
@@ -214,7 +214,7 @@
           </a:extLst>
         </p:spPr>
         <p:txBody>
-          <a:bodyPr lIns="35717" tIns="35717" rIns="35717" bIns="35717" anchor="ctr">
+          <a:bodyPr wrap="square" lIns="35717" tIns="35717" rIns="35717" bIns="35717" anchor="ctr">
             <a:spAutoFit />
           </a:bodyPr>
           <a:lstStyle>
@@ -231,57 +231,10 @@
             </a:lvl1pPr>
           </a:lstStyle>
           <a:p>
+            <a:pPr algn="l" />
             <a:r>
               <a:rPr sz="3600" dirty="0" />
               <a:t><%= title%></a:t>
-            </a:r>
-          </a:p>
-        </p:txBody>
-      </p:sp>
-      <p:sp>
-        <p:nvSpPr>
-          <p:cNvPr id="125" name="Shape 125" />
-          <p:cNvSpPr />
-          <p:nvPr />
-        </p:nvSpPr>
-        <p:spPr>
-          <a:xfrm>
-            <a:off x="2873569" y="4647041" />
-            <a:ext cx="3396863" cy="579963" />
-          </a:xfrm>
-          <a:prstGeom prst="rect">
-            <a:avLst />
-          </a:prstGeom>
-          <a:ln w="12700">
-            <a:miter lim="400000" />
-          </a:ln>
-          <a:extLst>
-            <a:ext uri="{C572A759-6A51-4108-AA02-DFA0A04FC94B}">
-              <ma14:wrappingTextBoxFlag xmlns:ma14="http://schemas.microsoft.com/office/mac/drawingml/2011/main" val="1" />
-            </a:ext>
-          </a:extLst>
-        </p:spPr>
-        <p:txBody>
-          <a:bodyPr lIns="35717" tIns="35717" rIns="35717" bIns="35717" anchor="ctr">
-            <a:spAutoFit />
-          </a:bodyPr>
-          <a:lstStyle>
-            <a:lvl1pPr>
-              <a:defRPr sz="3300">
-                <a:solidFill>
-                  <a:srgbClr val="41ADCE" />
-                </a:solidFill>
-                <a:latin typeface="Arial" />
-                <a:ea typeface="Arial" />
-                <a:cs typeface="Arial" />
-                <a:sym typeface="Arial" />
-              </a:defRPr>
-            </a:lvl1pPr>
-          </a:lstStyle>
-          <a:p>
-            <a:r>
-              <a:rPr dirty="0" />
-              <a:t>Logo de la marca</a:t>
             </a:r>
           </a:p>
         </p:txBody>
@@ -313,6 +266,40 @@
           <a:ln w="12700">
             <a:miter lim="400000" />
           </a:ln>
+        </p:spPr>
+      </p:pic>
+      <p:pic>
+        <p:nvPicPr>
+          <p:cNvPr id="2" name="Imagen 1" descr="cocacola_logo.png" />
+          <p:cNvPicPr>
+            <a:picLocks noChangeAspect="1" />
+          </p:cNvPicPr>
+          <p:nvPr />
+        </p:nvPicPr>
+        <p:blipFill>
+          <a:blip r:embed="rId4">
+            <a:extLst>
+              <a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">
+                <a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0" />
+              </a:ext>
+            </a:extLst>
+          </a:blip>
+          <a:stretch>
+            <a:fillRect />
+          </a:stretch>
+        </p:blipFill>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="2825750" y="4442883" />
+            <% if coords.any? %>
+              <a:ext cx="<%= coords[:cx].to_s %>" cy="<%= coords[:cy].to_s %>"/>
+            <% else %>
+              <a:ext cx="1905000" cy="1905000" />
+            <% end %>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst />
+          </a:prstGeom>
         </p:spPr>
       </p:pic>
     </p:spTree>
