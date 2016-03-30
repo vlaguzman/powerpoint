@@ -16,3 +16,13 @@ test/tmp
 test/version_tmp
 tmp
 .pryrc
+.DS_Store
+.idea
+.rvmrc
+public/system
+public/uploads
+public/bwn-image/
+vendor/cache/
+*.sublime*
+vendor/cache
+.env

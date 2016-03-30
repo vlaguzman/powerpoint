@@ -38,6 +38,54 @@ module Powerpoint
       @slides << Powerpoint::Slide::DescriptionPic.new(presentation: self, title: title, image_path: image_path, content: content)
     end
 
+    def add_picture_without_title_slide(title, image_path)
+      @slides << Powerpoint::Slide::PictureWithoutTitle.new(presentation: self, title: title, image_path: image_path)
+    end
+
+    def add_background_picture_slide(title, background_path, image_path)
+      @slides << Powerpoint::Slide::BackgroundPicture.new(presentation: self, title: title, background_path: background_path, image_path: image_path)
+    end
+
+    def add_fluvip_main_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title)
+    end
+
+    def add_fluvip_just_background_slide(title, background_path)
+      @slides << Powerpoint::Slide::FluvipSlide::JustBackground.new(presentation: self, title: title, background_path: background_path)
+    end
+
+    def add_fluvip_contries_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/contries_rels.xml.erb', slide_path: 'fluvip/contries_slide.xml.erb')
+    end
+
+    def add_fluvip_description_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/description_rels.xml.erb', slide_path: 'fluvip/description_slide.xml.erb')
+    end
+
+    def add_fluvip_objective_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/objective_rels.xml.erb', slide_path: 'fluvip/objective_slide.xml.erb')
+    end
+
+    def add_fluvip_info_campaign_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/info_campaign_rels.xml.erb', slide_path: 'fluvip/info_campaign_slide.xml.erb')
+    end
+
+    def add_fluvip_info_influencer_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/info_influencer_rels.xml.erb', slide_path: 'fluvip/info_influencer_slide.xml.erb')
+    end
+
+    def add_fluvip_campaign_resume_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/campaign_resume_rels.xml.erb', slide_path: 'fluvip/campaign_resume_slide.xml.erb')
+    end
+
+    def add_fluvip_signature_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/signature_rels.xml.erb', slide_path: 'fluvip/signature_slide.xml.erb')
+    end
+
+    def add_fluvip_flags_slide(title)
+      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/flags_rels.xml.erb', slide_path: 'fluvip/flags_slide.xml.erb')
+    end
+
     def save(path)
       Dir.mktmpdir do |dir|
         extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
