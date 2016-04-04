@@ -7,7 +7,8 @@ module Powerpoint
       class InfoCampaign
         include Powerpoint::Util
         
-        attr_reader :title, :objective, :image_path, :image_name, :coords, :creation_date, :influencers_data, :posts_data, :users_data, :impressions_data 
+        attr_reader :title, :objective, :image_path, :image_name, :coords, :creation_date, 
+                    :influencers_data, :posts_data, :users_data, :impressions_data, :providers
 
         def initialize(options={})
           require_arguments [:title, :objective, :creation_date, :image_path], options
@@ -24,7 +25,7 @@ module Powerpoint
 
         def default_coords
           slide_width = pixle_to_pt(720)
-          default_width = default_height = pixle_to_pt(150)
+          default_width = default_height = pixle_to_pt(100)
 
           dimensions = FastImage.size(image_path)
           image_width, image_height = dimensions.map {|d| pixle_to_pt(d)}

@@ -46,7 +46,8 @@ module Powerpoint
       @slides << Powerpoint::Slide::BackgroundPicture.new(presentation: self, title: title, background_path: background_path, image_path: image_path)
     end
 
-    def add_fluvip_main_slide(title, image_path)
+    def add_fluvip_main_slide(title, image_path, providers)
+      @providers = providers
       @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title, image_path: image_path, rels_path: 'fluvip/main_rels.xml.erb', slide_path: 'fluvip/main_slide.xml.erb')
     end
 
@@ -75,7 +76,7 @@ module Powerpoint
     end
 
     def add_fluvip_info_campaign_slide(title, objective, creation_date, image_path, influencers_data, posts_data, users_data, impressions_data)
-      @slides << Powerpoint::Slide::FluvipSlide::InfoCampaign.new(presentation: self, title: title, objective: objective, creation_date: creation_date, image_path: image_path, influencers_data: influencers_data, posts_data: posts_data, users_data: users_data, impressions_data: impressions_data, rels_path: 'fluvip/info_campaign_rels.xml.erb', slide_path: 'fluvip/info_campaign_slide.xml.erb')
+      @slides << Powerpoint::Slide::FluvipSlide::InfoCampaign.new(presentation: self, title: title, objective: objective, creation_date: creation_date, image_path: image_path, influencers_data: influencers_data, posts_data: posts_data, users_data: users_data, impressions_data: impressions_data, providers: @providers, rels_path: 'fluvip/info_campaign_rels.xml.erb', slide_path: 'fluvip/info_campaign_slide.xml.erb')
     end
 
     def add_fluvip_info_social_network_account_slide(title, image_path, provider_path, influencer_data, gender_data, ages_data, interests_data, countries_data)
