@@ -4,13 +4,13 @@ require 'erb'
 module Powerpoint
   module Slide
     module FluvipSlide
-      class Main 
+      class InfoCampaign
         include Powerpoint::Util
         
-        attr_reader :title, :image_path, :image_name, :coords
+        attr_reader :title, :objective, :image_path, :image_name, :coords, :creation_date, :influencers_data, :posts_data, :users_data, :impressions_data 
 
         def initialize(options={})
-          require_arguments [:title, :image_path], options
+          require_arguments [:title, :objective, :creation_date, :image_path], options
           options.each {|k, v| instance_variable_set("@#{k}", v)}
           @image_name = File.basename(@image_path)
           @coords = default_coords
@@ -45,6 +45,7 @@ module Powerpoint
           render_view(@slide_path, "#{extract_path}/ppt/slides/slide#{index}.xml")
         end
         private :save_slide_xml
+
       end
     end
   end

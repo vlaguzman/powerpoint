@@ -47,39 +47,47 @@ module Powerpoint
     end
 
     def add_fluvip_main_slide(title, image_path)
-      @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title, image_path: image_path)
+      @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title, image_path: image_path, rels_path: 'fluvip/main_rels.xml.erb', slide_path: 'fluvip/main_slide.xml.erb')
     end
 
     def add_fluvip_just_background_slide(title, background_path)
       @slides << Powerpoint::Slide::FluvipSlide::JustBackground.new(presentation: self, title: title, background_path: background_path)
     end
 
-    def add_fluvip_contries_slide(title)
-      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/contries_rels.xml.erb', slide_path: 'fluvip/contries_slide.xml.erb')
+    def add_fluvip_text_slide(title, text, rels_path, slide_path)
+      @slides << Powerpoint::Slide::FluvipSlide::Text.new(presentation: self, title: title, text: text, rels_path: rels_path, slide_path: slide_path)
     end
 
-    def add_fluvip_description_slide(title)
-      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/description_rels.xml.erb', slide_path: 'fluvip/description_slide.xml.erb')
+    def add_fluvip_contries_slide(title, text)
+      add_fluvip_text_slide(title, text, 'fluvip/contries_rels.xml.erb', 'fluvip/contries_slide.xml.erb')
     end
 
-    def add_fluvip_objective_slide(title)
-      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/objective_rels.xml.erb', slide_path: 'fluvip/objective_slide.xml.erb')
+    def add_fluvip_description_slide(title, text)
+      add_fluvip_text_slide(title, text, 'fluvip/description_rels.xml.erb', 'fluvip/description_slide.xml.erb')
     end
 
-    def add_fluvip_info_campaign_slide(title)
-      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/info_campaign_rels.xml.erb', slide_path: 'fluvip/info_campaign_slide.xml.erb')
+    def add_fluvip_signature_slide(title, text)
+      add_fluvip_text_slide(title, text, 'fluvip/signature_rels.xml.erb', 'fluvip/signature_slide.xml.erb')
     end
 
-    def add_fluvip_info_influencer_slide(title)
-      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/info_influencer_rels.xml.erb', slide_path: 'fluvip/info_influencer_slide.xml.erb')
+    def add_fluvip_objective_slide(title, objective)
+      @slides << Powerpoint::Slide::FluvipSlide::Objective.new(presentation: self, title: title, objective: objective, rels_path: 'fluvip/objective_rels.xml.erb', slide_path: 'fluvip/objective_slide.xml.erb')
+    end
+
+    def add_fluvip_info_campaign_slide(title, objective, creation_date, image_path, influencers_data, posts_data, users_data, impressions_data)
+      @slides << Powerpoint::Slide::FluvipSlide::InfoCampaign.new(presentation: self, title: title, objective: objective, creation_date: creation_date, image_path: image_path, influencers_data: influencers_data, posts_data: posts_data, users_data: users_data, impressions_data: impressions_data, rels_path: 'fluvip/info_campaign_rels.xml.erb', slide_path: 'fluvip/info_campaign_slide.xml.erb')
+    end
+
+    def add_fluvip_info_social_network_account_slide(title, image_path, provider_path, influencer_data, gender_data, ages_data, interests_data, countries_data)
+      @slides << Powerpoint::Slide::FluvipSlide::InfoSocialNetworkAccount.new(presentation: self, title: title, image_path: image_path, provider_path: provider_path, influencer_data: influencer_data, gender_data: gender_data, ages_data: ages_data, interests_data: interests_data, countries_data: countries_data, rels_path: 'fluvip/info_influencer_rels.xml.erb', slide_path: 'fluvip/info_influencer_slide.xml.erb')
+    end
+
+    def add_fluvip_totals_campaing_slide(title, publications_data, reach_data, price_data)
+      @slides << Powerpoint::Slide::FluvipSlide::TotalsCampaign.new(presentation: self, title: title, publications_data: publications_data, reach_data: reach_data, price_data: price_data, rels_path: 'fluvip/totals_campaign_rels.xml.erb', slide_path: 'fluvip/totals_campaign_slide.xml.erb')
     end
 
     def add_fluvip_campaign_resume_slide(title)
       @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/campaign_resume_rels.xml.erb', slide_path: 'fluvip/campaign_resume_slide.xml.erb')
-    end
-
-    def add_fluvip_signature_slide(title)
-      @slides << Powerpoint::Slide::FluvipSlide::Basic.new(presentation: self, title: title, rels_path: 'fluvip/signature_rels.xml.erb', slide_path: 'fluvip/signature_slide.xml.erb')
     end
 
     def add_fluvip_flags_slide(title)
