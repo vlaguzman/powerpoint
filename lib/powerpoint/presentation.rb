@@ -12,6 +12,11 @@ module Powerpoint
       @slides = []
     end
 
+    def self.new_with_providers(providers)
+      @providers = providers
+      self.new
+    end
+
     def add_intro(title, subtitile = nil)
       existing_intro_slide = @slides.select {|s| s.class == Powerpoint::Slide::Intro}[0]
       slide = Powerpoint::Slide::Intro.new(presentation: self, title: title, subtitile: subtitile)
@@ -46,9 +51,12 @@ module Powerpoint
       @slides << Powerpoint::Slide::BackgroundPicture.new(presentation: self, title: title, background_path: background_path, image_path: image_path)
     end
 
-    def add_fluvip_main_slide(title, image_path, providers)
-      @providers = providers
+    def add_fluvip_main_slide(title, image_path)
       @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title, image_path: image_path, rels_path: 'fluvip/main_rels.xml.erb', slide_path: 'fluvip/main_slide.xml.erb')
+    end
+
+    def add_fluvip_main_social_network_slide(title, image_path)
+      @slides << Powerpoint::Slide::FluvipSlide::Main.new(presentation: self, title: title, image_path: image_path, rels_path: 'fluvip/main_social_network_rels.xml.erb', slide_path: 'fluvip/main_social_network_slide.xml.erb')
     end
 
     def add_fluvip_just_background_slide(title, background_path)
