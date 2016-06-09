@@ -43,8 +43,8 @@ module Powerpoint
             copy_media(extract_path, @top_followers_data[2][:picture_url])
             copy_media(extract_path, @top_followers_data[3][:picture_url])
             copy_media(extract_path, @top_followers_data[4][:picture_url])  
-          rescue StandardError => e
-            Rails.logger.e e.message
+          rescue StandardError => error
+            Rails.logger.error error.message
           end
           save_rel_xml(extract_path, index)
           save_slide_xml(extract_path, index)
