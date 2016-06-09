@@ -7,20 +7,25 @@ module Powerpoint
       class InfoSocialNetworkAccount
         include Powerpoint::Util
         
-        attr_reader :title, :image_path, :image_name, :provider_path, :provider_name, :coords, :influencer_data, :gender_data, :ages_data, 
-                    :interests_data, :countries_data, :flag_file_name, :flag_file_name2, :flag_file_name3, :flag_file_name4, 
-                    :flag_file_name5
+        attr_reader :title, :image_path, :profile_image_name, :provider_path, :provider_name, :coords, :influencer_data, :gender_data, :ages_data, 
+                    :interests_data, :countries_data, :cities_data, :flag_file_name, :flag_file_name2, :flag_file_name3, :flag_file_name4, 
+                    :flag_file_name5, :top_followers_data
 
         def initialize(options={})
           require_arguments [:title, :image_path, :provider_path, :influencer_data, :gender_data, :ages_data, :interests_data, :countries_data], options
           options.each {|k, v| instance_variable_set("@#{k}", v)}
-          @image_name = File.basename(@image_path)
+          @profile_image_name = File.basename(@image_path)
           @provider_name = File.basename(@provider_path)
-          @flag_file_name = File.basename(countries_data[0][:image_path])
-          @flag_file_name2 = File.basename(countries_data[1][:image_path])
-          @flag_file_name3 = File.basename(countries_data[2][:image_path])
-          @flag_file_name4 = File.basename(countries_data[3][:image_path])
-          @flag_file_name5 = File.basename(countries_data[4][:image_path])
+          @flag_file_name = File.basename(@countries_data[0][:image_path])
+          @flag_file_name2 = File.basename(@countries_data[1][:image_path])
+          @flag_file_name3 = File.basename(@countries_data[2][:image_path])
+          @flag_file_name4 = File.basename(@countries_data[3][:image_path])
+          @flag_file_name5 = File.basename(@countries_data[4][:image_path])
+          @top_follower_file_name = File.basename(@top_followers_data[0][:picture_url])
+          @top_follower_file_name2 = File.basename(@top_followers_data[1][:picture_url])
+          @top_follower_file_name3 = File.basename(@top_followers_data[2][:picture_url])
+          @top_follower_file_name4 = File.basename(@top_followers_data[3][:picture_url])
+          @top_follower_file_name5 = File.basename(@top_followers_data[4][:picture_url])
           @coords = default_coords
         end
 
@@ -31,7 +36,12 @@ module Powerpoint
           copy_media(extract_path, @countries_data[1][:image_path])
           copy_media(extract_path, @countries_data[2][:image_path])
           copy_media(extract_path, @countries_data[3][:image_path])
-          copy_media(extract_path, @countries_data[4][:image_path])                             
+          copy_media(extract_path, @countries_data[4][:image_path]) 
+          copy_media(extract_path, @top_followers_data[0][:picture_url])
+          copy_media(extract_path, @top_followers_data[1][:picture_url])
+          copy_media(extract_path, @top_followers_data[2][:picture_url])
+          copy_media(extract_path, @top_followers_data[3][:picture_url])
+          copy_media(extract_path, @top_followers_data[4][:picture_url])                           
           save_rel_xml(extract_path, index)
           save_slide_xml(extract_path, index)
         end

@@ -1345,7 +1345,7 @@
                </p:cNvSpPr>
                <p:nvPr />
             </p:nvSpPr>
-            <p:spPr bwMode="auto">
+            <p:spPr bwMode="auto" algn="ctr">
                <a:xfrm>
                   <a:off x="3211513" y="1517650" />
                   <a:ext cx="2162175" cy="450850" />
@@ -1394,14 +1394,14 @@
                <a:bodyPr lIns="64281" tIns="64281" rIns="64281" bIns="64281" />
                <a:lstStyle />
                <a:p>
-                  <a:pPr defTabSz="642915">
+                  <a:pPr defTabSz="642915" algn="ctr">
                      <a:spcBef>
                         <a:spcPts val="1055" />
                      </a:spcBef>
                      <a:defRPr />
                   </a:pPr>
                   <a:r>
-                     <a:rPr lang="es-ES" sz="1400" b="1">
+                     <a:rPr lang="es-ES" sz="1400" b="1" algn="ctr">
                         <a:solidFill>
                            <a:srgbClr val="4D4D4F" />
                         </a:solidFill>
@@ -1494,7 +1494,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>11</a:t>
+                     <a:t><%= publications_data[:twitter] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -1571,7 +1571,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>22</a:t>
+                     <a:t><%= publications_data[:instagram] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -1648,7 +1648,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>33</a:t>
+                     <a:t><%= publications_data[:fanpage] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -1707,17 +1707,17 @@
                </a:extLst>
             </p:spPr>
             <p:txBody>
-               <a:bodyPr lIns="64281" tIns="64281" rIns="64281" bIns="64281" />
+               <a:bodyPr lIns="64281" tIns="64281" rIns="64281" bIns="64281" algn="ctr"/>
                <a:lstStyle />
                <a:p>
-                  <a:pPr defTabSz="642915">
+                  <a:pPr defTabSz="642915" algn="ctr">
                      <a:spcBef>
                         <a:spcPts val="1055" />
                      </a:spcBef>
                      <a:defRPr />
                   </a:pPr>
                   <a:r>
-                     <a:rPr lang="es-ES" sz="1400" b="1">
+                     <a:rPr lang="es-ES" sz="1400" b="1" algn="ctr">
                         <a:solidFill>
                            <a:srgbClr val="4D4D4F" />
                         </a:solidFill>
@@ -1810,7 +1810,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>111,111</a:t>
+                     <a:t><%= reach_data[:twitter] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -1887,7 +1887,7 @@
                         <a:cs typeface="Arial" charset="0" />
                         <a:sym typeface="Arial" charset="0" />
                      </a:rPr>
-                     <a:t>222,222</a:t>
+                     <a:t><%= reach_data[:instagram] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -1964,7 +1964,7 @@
                         <a:cs typeface="Arial" charset="0" />
                         <a:sym typeface="Arial" charset="0" />
                      </a:rPr>
-                     <a:t>333,333</a:t>
+                     <a:t><%= reach_data[:fanpage] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -2026,14 +2026,14 @@
                <a:bodyPr lIns="64281" tIns="64281" rIns="64281" bIns="64281" />
                <a:lstStyle />
                <a:p>
-                  <a:pPr defTabSz="642915">
+                  <a:pPr defTabSz="642915" algn="ctr">
                      <a:spcBef>
                         <a:spcPts val="1055" />
                      </a:spcBef>
                      <a:defRPr />
                   </a:pPr>
                   <a:r>
-                     <a:rPr lang="es-ES" sz="1400" b="1">
+                     <a:rPr lang="es-ES" sz="1400" b="1" algn="ctr">
                         <a:solidFill>
                            <a:srgbClr val="4D4D4F" />
                         </a:solidFill>
@@ -2126,7 +2126,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>1,111,111</a:t>
+                     <a:t><%= impressions_data[:twitter] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -2203,7 +2203,7 @@
                         <a:cs typeface="Arial" charset="0" />
                         <a:sym typeface="Arial" charset="0" />
                      </a:rPr>
-                     <a:t>2,222,222</a:t>
+                     <a:t><%= impressions_data[:instagram] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -2280,7 +2280,7 @@
                         <a:cs typeface="Arial" charset="0" />
                         <a:sym typeface="Arial" charset="0" />
                      </a:rPr>
-                     <a:t>3,333,333</a:t>
+                     <a:t><%= impressions_data[:fanpage] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -2540,17 +2540,17 @@
                </a:extLst>
             </p:spPr>
             <p:txBody>
-               <a:bodyPr lIns="64281" tIns="64281" rIns="64281" bIns="64281" />
+               <a:bodyPr lIns="64281" tIns="64281" rIns="64281" bIns="64281" algn="ctr"/>
                <a:lstStyle />
                <a:p>
-                  <a:pPr defTabSz="642915">
+                  <a:pPr defTabSz="642915" algn="ctr">
                      <a:spcBef>
                         <a:spcPts val="1055" />
                      </a:spcBef>
                      <a:defRPr />
                   </a:pPr>
                   <a:r>
-                     <a:rPr lang="es-ES" sz="1400" b="1">
+                     <a:rPr lang="es-ES" sz="1400" b="1" algn="ctr">
                         <a:solidFill>
                            <a:srgbClr val="4D4D4F" />
                         </a:solidFill>
@@ -2643,7 +2643,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>1</a:t>
+                     <a:t><%= influencers_data[:twitter] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -2720,7 +2720,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>2</a:t>
+                     <a:t><%= influencers_data[:instagram] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -2797,7 +2797,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>3</a:t>
+                     <a:t><%= influencers_data[:fanpage] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -2927,14 +2927,14 @@
                <a:bodyPr lIns="64281" tIns="64281" rIns="64281" bIns="64281" />
                <a:lstStyle />
                <a:p>
-                  <a:pPr defTabSz="642915">
+                  <a:pPr defTabSz="642915" algn="ctr">
                      <a:spcBef>
                         <a:spcPts val="1055" />
                      </a:spcBef>
                      <a:defRPr />
                   </a:pPr>
                   <a:r>
-                     <a:rPr lang="es-ES" sz="1800" b="1">
+                     <a:rPr lang="es-ES" sz="1800" b="1" algn="ctr">
                         <a:solidFill>
                            <a:srgbClr val="686A6B" />
                         </a:solidFill>
@@ -3027,7 +3027,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>5</a:t>
+                     <a:t><%=influencers_data[:total]%></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -3104,7 +3104,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>55</a:t>
+                     <a:t><%= publications_data[:total] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -3181,7 +3181,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>555,555</a:t>
+                     <a:t><%= reach_data[:total] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -3258,7 +3258,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>5,555,555</a:t>
+                     <a:t><%= impressions_data[:total] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -3893,7 +3893,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>44</a:t>
+                     <a:t><%= publications_data[:facebook] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -3970,7 +3970,7 @@
                         <a:cs typeface="Arial" charset="0" />
                         <a:sym typeface="Arial" charset="0" />
                      </a:rPr>
-                     <a:t>444,444</a:t>
+                     <a:t><%= reach_data[:facebook] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -4047,7 +4047,7 @@
                         <a:cs typeface="Arial" charset="0" />
                         <a:sym typeface="Arial" charset="0" />
                      </a:rPr>
-                     <a:t>4,444,444</a:t>
+                     <a:t><%= impressions_data[:facebook] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -4124,7 +4124,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>4</a:t>
+                     <a:t><%= influencers_data[:facebook] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
@@ -4268,7 +4268,7 @@
                         <a:cs typeface="Calibri" charset="0" />
                         <a:sym typeface="Calibri" charset="0" />
                      </a:rPr>
-                     <a:t>USD ,373.37</a:t>
+                     <a:t><%= price_data[:total] %></a:t>
                   </a:r>
                </a:p>
             </p:txBody>
