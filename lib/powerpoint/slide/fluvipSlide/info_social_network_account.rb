@@ -30,18 +30,22 @@ module Powerpoint
         end
 
         def save(extract_path, index)
-          copy_media(extract_path, @image_path)
-          copy_media(extract_path, @provider_path)
-          copy_media(extract_path, @countries_data[0][:image_path])
-          copy_media(extract_path, @countries_data[1][:image_path])
-          copy_media(extract_path, @countries_data[2][:image_path])
-          copy_media(extract_path, @countries_data[3][:image_path])
-          copy_media(extract_path, @countries_data[4][:image_path]) 
-          copy_media(extract_path, @top_followers_data[0][:picture_url])
-          copy_media(extract_path, @top_followers_data[1][:picture_url])
-          copy_media(extract_path, @top_followers_data[2][:picture_url])
-          copy_media(extract_path, @top_followers_data[3][:picture_url])
-          copy_media(extract_path, @top_followers_data[4][:picture_url])                           
+          begin
+            copy_media(extract_path, @image_path)
+            copy_media(extract_path, @provider_path)
+            copy_media(extract_path, @countries_data[0][:image_path])
+            copy_media(extract_path, @countries_data[1][:image_path])
+            copy_media(extract_path, @countries_data[2][:image_path])
+            copy_media(extract_path, @countries_data[3][:image_path])
+            copy_media(extract_path, @countries_data[4][:image_path]) 
+            copy_media(extract_path, @top_followers_data[0][:picture_url])
+            copy_media(extract_path, @top_followers_data[1][:picture_url])
+            copy_media(extract_path, @top_followers_data[2][:picture_url])
+            copy_media(extract_path, @top_followers_data[3][:picture_url])
+            copy_media(extract_path, @top_followers_data[4][:picture_url])  
+          rescue StandardError => e
+            Rails.logger.error error.message
+          end
           save_rel_xml(extract_path, index)
           save_slide_xml(extract_path, index)
         end
