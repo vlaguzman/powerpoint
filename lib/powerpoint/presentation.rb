@@ -87,8 +87,8 @@ module Powerpoint
       @slides << Powerpoint::Slide::FluvipSlide::InfoCampaign.new(presentation: self, title: title, objective: objective, creation_date: creation_date, image_path: image_path, influencers_data: influencers_data, posts_data: posts_data, users_data: users_data, impressions_data: impressions_data, providers: @providers, rels_path: 'fluvip/info_campaign_rels.xml.erb', slide_path: 'fluvip/info_campaign_slide.xml.erb')
     end
 
-    def add_fluvip_info_social_network_account_slide(title, image_path, provider_path, influencer_data, gender_data, ages_data, interests_data, countries_data, cities_data, top_followers_data)
-      @slides << Powerpoint::Slide::FluvipSlide::InfoSocialNetworkAccount.new(presentation: self, title: title, image_path: image_path, provider_path: provider_path, influencer_data: influencer_data, gender_data: gender_data, ages_data: ages_data, interests_data: interests_data, countries_data: countries_data, cities_data: cities_data, top_followers_data: top_followers_data, rels_path: 'fluvip/info_influencer_rels.xml.erb', slide_path: 'fluvip/info_influencer_slide.xml.erb')
+    def add_fluvip_info_social_network_account_slide(title, image_path, provider_path, influencer_data, gender_data, ages_data, interests_data, countries_data, cities_data, top_followers_data, sn_image_path)
+      @slides << Powerpoint::Slide::FluvipSlide::InfoSocialNetworkAccount.new(presentation: self, title: title, image_path: image_path, provider_path: provider_path, influencer_data: influencer_data, gender_data: gender_data, ages_data: ages_data, interests_data: interests_data, countries_data: countries_data, cities_data: cities_data, top_followers_data: top_followers_data,sn_image_path: sn_image_path, rels_path: 'fluvip/info_influencer_rels.xml.erb', slide_path: 'fluvip/info_influencer_slide.xml.erb')
     end
 
     def add_fluvip_totals_campaing_slide(title, influencers_data, publications_data, reach_data, impressions_data, price_data)

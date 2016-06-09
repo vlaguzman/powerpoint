@@ -9,13 +9,14 @@ module Powerpoint
         
         attr_reader :title, :image_path, :profile_image_name, :provider_path, :provider_name, :coords, :influencer_data, :gender_data, :ages_data, 
                     :interests_data, :countries_data, :cities_data, :flag_file_name, :flag_file_name2, :flag_file_name3, :flag_file_name4, 
-                    :flag_file_name5, :top_followers_data
+                    :flag_file_name5, :top_followers_data, :sn_image_name
 
         def initialize(options={})
           require_arguments [:title, :image_path, :provider_path, :influencer_data, :gender_data, :ages_data, :interests_data, :countries_data], options
           options.each {|k, v| instance_variable_set("@#{k}", v)}
           @profile_image_name = File.basename(@image_path)
           @provider_name = File.basename(@provider_path)
+          @sn_image_name = File.basename(@sn_image_path)
           @flag_file_name = File.basename(@countries_data[0][:image_path])
           @flag_file_name2 = File.basename(@countries_data[1][:image_path])
           @flag_file_name3 = File.basename(@countries_data[2][:image_path])
@@ -33,6 +34,7 @@ module Powerpoint
           begin
             copy_media(extract_path, @image_path)
             copy_media(extract_path, @provider_path)
+            copy_media(extract_path, @sn_image_path)
             copy_media(extract_path, @countries_data[0][:image_path])
             copy_media(extract_path, @countries_data[1][:image_path])
             copy_media(extract_path, @countries_data[2][:image_path])
