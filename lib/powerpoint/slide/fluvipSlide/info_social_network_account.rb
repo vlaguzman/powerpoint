@@ -21,11 +21,7 @@ module Powerpoint
           @flag_file_name2 = File.basename(@countries_data[1][:image_path])
           @flag_file_name3 = File.basename(@countries_data[2][:image_path])
           @flag_file_name4 = File.basename(@countries_data[3][:image_path])
-          @top_follower_file_name = File.basename(@top_followers_data[0][:picture_url])
-          @top_follower_file_name2 = File.basename(@top_followers_data[1][:picture_url])
-          @top_follower_file_name3 = File.basename(@top_followers_data[2][:picture_url])
-          @top_follower_file_name4 = File.basename(@top_followers_data[3][:picture_url])
-          @top_follower_file_name5 = File.basename(@top_followers_data[4][:picture_url])
+          assign_top_follower_file_names unless @top_followers_data.nil?
           @coords = default_coords
         end
 
@@ -48,6 +44,14 @@ module Powerpoint
           end
           save_rel_xml(extract_path, index)
           save_slide_xml(extract_path, index)
+        end
+
+        def assign_top_follower_file_names
+          @top_follower_file_name = File.basename(@top_followers_data[0][:picture_url])
+          @top_follower_file_name2 = File.basename(@top_followers_data[1][:picture_url])
+          @top_follower_file_name3 = File.basename(@top_followers_data[2][:picture_url])
+          @top_follower_file_name4 = File.basename(@top_followers_data[3][:picture_url])
+          @top_follower_file_name5 = File.basename(@top_followers_data[4][:picture_url])
         end
 
         def default_coords
