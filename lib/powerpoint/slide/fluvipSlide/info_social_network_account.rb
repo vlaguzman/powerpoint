@@ -14,15 +14,15 @@ module Powerpoint
         def initialize(options={})
           require_arguments [:title, :image_path, :provider_path, :influencer_data, :gender_data, :ages_data, :interests_data, :countries_data], options
           options.each {|k, v| instance_variable_set("@#{k}", v)}
-          @profile_image_name = File.basename(@image_path)
+
           @provider_name = File.basename(@provider_path)
           @sn_image_name = File.basename(@sn_image_path)
           @flag_file_name = File.basename(@countries_data[0][:image_path])
           @flag_file_name2 = File.basename(@countries_data[1][:image_path])
           @flag_file_name3 = File.basename(@countries_data[2][:image_path])
           @flag_file_name4 = File.basename(@countries_data[3][:image_path])
-          assign_top_follower_file_names unless @top_followers_data.nil?
-          @coords = default_coords
+          @profile_image_name = File.basename(@image_path)
+          assign_top_follower_file_names if @top_followers_data
         end
 
         def save(extract_path, index)
@@ -34,11 +34,7 @@ module Powerpoint
             copy_media(extract_path, @countries_data[1][:image_path])
             copy_media(extract_path, @countries_data[2][:image_path])
             copy_media(extract_path, @countries_data[3][:image_path])
-            copy_media(extract_path, @top_followers_data[0][:picture_url])
-            copy_media(extract_path, @top_followers_data[1][:picture_url])
-            copy_media(extract_path, @top_followers_data[2][:picture_url])
-            copy_media(extract_path, @top_followers_data[3][:picture_url])
-            copy_media(extract_path, @top_followers_data[4][:picture_url])  
+            copy_top_followers_media_data(extract_path) if @top_followers_data
           rescue StandardError => error
             Rails.logger.error error.message
           end
@@ -54,19 +50,14 @@ module Powerpoint
           @top_follower_file_name5 = File.basename(@top_followers_data[4][:picture_url])
         end
 
-        def default_coords
-          default_width = default_height = pixle_to_pt(100)
-
-          dimensions = FastImage.size(image_path)
-          image_width, image_height = dimensions.map {|d| pixle_to_pt(d)}
-          new_width = default_width < image_width ? default_width : image_width
-          ratio = new_width / image_width.to_f
-          new_height = (image_height.to_f * ratio).round
-
-          {cx: new_width, cy: new_height}
+        def copy_top_followers_media_data(extract_path)
+          copy_media(extract_path, @top_followers_data[0][:picture_url])
+          copy_media(extract_path, @top_followers_data[1][:picture_url])
+          copy_media(extract_path, @top_followers_data[2][:picture_url])
+          copy_media(extract_path, @top_followers_data[3][:picture_url])
+          copy_media(extract_path, @top_followers_data[4][:picture_url])
         end
-        private :default_coords
-
+        
         def save_rel_xml(extract_path, index)
           render_view(@rels_path, "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels")
         end
